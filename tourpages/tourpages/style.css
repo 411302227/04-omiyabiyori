@@ -1,0 +1,633 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Hiragino Maru Gothic ProN", sans-serif;
+    background: #fffaf5;
+    color: #3b3b3b;
+}
+
+/* =========================
+   NAV
+========================= */
+.navbar {
+    background: linear-gradient(90deg, #e6b7c2, #d8c7a3);
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.15);
+    transition: all 0.25s ease;
+    backdrop-filter: blur(6px);
+    display: inline-block;
+}
+
+.navbar a:hover {
+    background: white;
+    color: #8b5e3c;
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   HERO
+========================= */
+.hero{
+    height: 450px;  /* 高度可自行調整 */
+
+    background-image: url("images/homepage.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    color: white;
+
+    position: relative;
+}
+
+/* 讓文字更清楚 */
+.hero::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0,0,0,0.35);
+}
+
+.hero h1,
+.hero p{
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1{
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.hero p{
+    font-size: 1.2rem;
+}
+
+
+
+
+/* =========================
+   人気商品
+========================= */
+.popular-section {
+    padding: 60px 20px;
+    background: #fff7f0;
+    text-align: center;
+}
+
+.product-slider {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-top: 20px;
+}
+
+.product-card {
+    min-width: 220px;
+    background: white;
+    border-radius: 16px;
+    padding: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.product-card img {
+    width: 100%;
+    height: 180px;        /* 統一高度 */
+    object-fit: contain;  /* 保持圖片比例，不會被裁掉 */
+    border-radius: 12px;
+}
+
+.price {
+    color: #8b5e3c;
+    font-weight: bold;
+}
+/* =========================
+   Campaign
+========================= */
+
+.campaign-section{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:40px;
+
+    padding:60px 20px;
+    background:white;
+}
+
+.campaign-text{
+    flex:1;
+    max-width:500px;
+}
+
+.campaign-text h2{
+    color:#8b5e3c;
+    margin-bottom:15px;
+}
+
+.campaign-text p{
+    line-height:1.8;
+}
+
+.coupon-card{
+    width:260px;
+
+    background:#fff7f0;
+    border-radius:20px;
+
+    padding:15px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:0 4px 10px rgba(0,0,0,.08);
+}
+
+.coupon-card:hover{
+    transform:translateY(-5px);
+}
+
+.coupon-card img{
+    width:100%;
+    border-radius:12px;
+}
+
+.coupon-code{
+    margin-top:12px;
+    font-weight:bold;
+    color:#c0392b;
+    font-size:20px;
+}
+/* =========================
+ /* =========================
+   RECOMMEND
+========================= */
+.recommend-section {
+    max-width: 950px;
+    margin: 60px auto;
+    padding: 40px 25px;
+    text-align: center;
+}
+
+.recommend-section h1 {
+    font-size: 42px;
+    color: #7a5a3a;
+    margin-bottom: 15px;
+}
+
+.recommend-intro {
+    color: #666;
+    line-height: 1.9;
+    margin-bottom: 35px;
+}
+
+.recommend-card {
+    background: #fcfcfb;
+    border-radius: 28px;
+    padding: 35px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    text-align: left;
+}
+
+.recommend-card img {
+    width: 320px;
+    height: 240px;
+    object-fit: contain;
+    border-radius: 20px;
+    background: #f6f4ef;
+}
+
+.recommend-text h2 {
+    color: #7a5a3a;
+    margin-bottom: 15px;
+}
+
+.recommend-text p {
+    color: #555;
+    line-height: 1.9;
+}
+
+.recommend-price {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #c0392b;
+}
+
+@media (max-width: 768px) {
+    .recommend-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .recommend-card img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* =========================
+   FOOTER（NAVと完全統一）
+========================= */
+footer {
+    background: linear-gradient(90deg, #d8c7a3, #e6b7c2);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+}
+
+.social-icons {
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons a {
+    font-size: 22px;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+
+    padding: 8px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.15);
+
+    transition: all 0.25s ease;
+    backdrop-filter: blur(6px);
+}
+
+
+.social-icons a:hover {
+    background: white;
+    color: #8b5e3c;
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   CONTACT
+========================= */
+.contact-section {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 50px 30px;
+    text-align: center;
+}
+
+.contact-section h1 {
+    font-size: 42px;
+    color: #8b5e3c;
+    margin-bottom: 20px;
+}
+
+.contact-intro {
+    line-height: 1.9;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.contact-card {
+    background: white;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    margin-bottom: 35px;
+}
+
+.contact-card h2 {
+    color: #8b5e3c;
+    margin-top: 22px;
+    margin-bottom: 8px;
+}
+
+.contact-card h2:first-child {
+    margin-top: 0;
+}
+
+.contact-card p {
+    font-size: 17px;
+    color: #555;
+}
+
+.contact-message {
+    background: linear-gradient(90deg, #fff7f0, #f8e8dc);
+    border-radius: 24px;
+    padding: 35px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.contact-message h2 {
+    color: #8b5e3c;
+    margin-bottom: 12px;
+}
+
+.contact-message p {
+    color: #555;
+    line-height: 1.9;
+}
+/* =========================
+   FEEDBACK
+========================= */
+
+.feedback-section{
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 50px 30px;
+    text-align: center;
+}
+
+.feedback-section h1{
+    font-size: 42px;
+    color: #8b5e3c;
+    margin-bottom: 20px;
+}
+
+.feedback-intro{
+    color: #666;
+    line-height: 1.9;
+    margin-bottom: 40px;
+}
+
+.feedback-card{
+    background: white;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    margin-bottom: 35px;
+}
+
+.feedback-card h2{
+    color: #8b5e3c;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.feedback-card h2:first-child{
+    margin-top: 0;
+}
+
+.feedback-card p{
+    color: #555;
+    line-height: 1.8;
+}
+
+.feedback-message{
+    background: linear-gradient(90deg,#fff7f0,#f8e8dc);
+    border-radius: 24px;
+    padding: 30px;
+}
+
+.feedback-message h2{
+    color: #8b5e3c;
+    margin-bottom: 12px;
+}
+
+.feedback-message p{
+    color: #555;
+    line-height: 1.8;
+}
+/* =========================
+   ABOUT
+========================= */
+.about-section {
+    max-width: 1050px;
+    margin: 60px auto;
+    padding: 40px 25px;
+    text-align: center;
+}
+
+.about-title {
+    margin-bottom: 35px;
+}
+
+.about-title h1 {
+    font-size: 42px;
+    color: #8b5e3c;
+    margin-bottom: 15px;
+}
+
+.about-title p {
+    color: #666;
+    line-height: 1.8;
+}
+
+.about-visual{
+    width:100%;
+    height:auto;
+    overflow:hidden;
+    border-radius:28px;
+    margin-bottom:35px;
+}
+
+.about-visual img{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+.about-card {
+    background: white;
+    border-radius: 28px;
+    padding: 40px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    text-align: left;
+}
+
+.about-card h2 {
+    color: #8b5e3c;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.about-card h2:first-child {
+    margin-top: 0;
+}
+
+.about-card p {
+    color: #555;
+    line-height: 1.9;
+}
+
+.about-message {
+    margin-top: 35px;
+    background: linear-gradient(90deg,#fff7f0,#f8e8dc);
+    border-radius: 28px;
+    padding: 30px;
+}
+
+.about-message h2 {
+    color: #8b5e3c;
+    margin-bottom: 12px;
+}
+
+.about-message p {
+    color: #555;
+    line-height: 1.9;
+}
+/* =========================
+   Ranking
+========================= */
+
+.ranking-section{
+    max-width:1100px;
+    margin:60px auto;
+    padding:20px;
+    text-align:center;
+}
+
+.ranking-section h1{
+    color:#8b5e3c;
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.ranking-intro{
+    color:#666;
+    margin-bottom:40px;
+}
+
+.rank1{
+    background:#fff8e8;
+    border:3px solid #f4d03f;
+}
+
+.ranking-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    margin-top:30px;
+}
+
+.ranking-card{
+    background:white;
+    border-radius:20px;
+    padding:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.ranking-card img{
+    width:100%;
+    height:180px;
+    object-fit:contain;
+    margin-bottom:15px;
+}
+
+.rank-number{
+    font-weight:bold;
+    color:#c0392b;
+    margin-bottom:10px;
+}
+
+.ranking-card h2,
+.ranking-card h3{
+    color:#8b5e3c;
+    margin-bottom:10px;
+}
+
+.ranking-card p{
+    color:#666;
+    line-height:1.7;
+}
+
+.rank1 span{
+    display:block;
+    margin-top:15px;
+    font-size:22px;
+    font-weight:bold;
+    color:#c0392b;
+}
+/* =========================
+   商品頁 Product
+========================= */
+
+.card-container{
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 20px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 25px;
+}
+
+.card{
+    background: white;
+    border-radius: 22px;
+    padding: 20px;
+
+    text-align: center;
+
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+
+    transition: 0.3s;
+}
+
+.card:hover{
+    transform: translateY(-5px);
+}
+
+.card img{
+    width: 100%;
+    height: 180px;
+
+    object-fit: contain;
+
+    border-radius: 14px;
+
+    margin-bottom: 15px;
+}
+
+.card h3{
+    color: #8b5e3c;
+    margin-bottom: 10px;
+
+    font-size: 22px;
+}
+
+.card p{
+    color: #555;
+    line-height: 1.8;
+    font-size: 15px;
+}
